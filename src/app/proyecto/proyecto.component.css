@@ -1,0 +1,13 @@
+.tarjeta-proyecto {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px; /* Suaviza las esquinas */
+  padding: 20px; /* Espacio interior para que el texto respire */
+  margin: 10px; /* Separación entre tarjetas */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra sutil para dar profundidad */
+  transition: transform 0.2s; /* Prepara una animación suave */
+}
+
+/* Pseudo-clase para añadir interactividad visual */
+.tarjeta-proyecto:hover {
+  transform: translateY(-5px); /* Eleva la tarjeta ligeramente al pasar el cursor */
+}

@@ -1,0 +1,7 @@
+.contenedor-proyectos {
+  display: grid;
+  /* La magia de la responsividad en una sola línea: */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px; /* Espacio entre las tarjetas */
+  padding: 20px;
+}

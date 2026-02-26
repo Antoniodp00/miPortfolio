@@ -1,0 +1,5 @@
+<div class="contenedor-proyectos">
+  @for(proyecto of misProyectos; track proyecto.titulo) {
+    <app-proyecto [datos]="proyecto"></app-proyecto>
+  }
+</div>
