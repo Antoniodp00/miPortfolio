@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Proyectos } from '../models/Proyecto.models';
+import { Proyectos } from '../../models/proyecto.models';
 
 
 @Component({
