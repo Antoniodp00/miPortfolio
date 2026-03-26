@@ -14,7 +14,7 @@ interface PortfolioData {
 @Injectable({ providedIn: 'root' })
 export class PortfolioService {
   private http  = inject(HttpClient);
-  private data$ = this.http.get<PortfolioData>('/assets/data.json').pipe(shareReplay(1));
+  private data$ = this.http.get<PortfolioData>('assets/data.json').pipe(shareReplay(1));
 
   getProfile():    Observable<Profile>      { return this.data$.pipe(map(d => d.profile)); }
   getSkills():     Observable<Skill[]>      { return this.data$.pipe(map(d => d.skills)); }
