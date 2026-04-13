@@ -1,30 +1,48 @@
-import { Directive, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit, OnDestroy } from '@angular/core';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 @Directive({ selector: '[appAnimateOnScroll]', standalone: true })
 export class AnimateOnScrollDirective implements OnInit, OnDestroy {
   @Input() delay = 0;
-  private observer!: IntersectionObserver;
+  @Input() animFrom: 'bottom' | 'left' | 'right' | 'scale' = 'bottom';
+  private trigger?: ScrollTrigger;
 
   constructor(private el: ElementRef) {}
 
   ngOnInit() {
     const el = this.el.nativeElement as HTMLElement;
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(28px)';
-    el.style.transition = `opacity 0.55s ease ${this.delay}ms, transform 0.55s ease ${this.delay}ms`;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
 
-    this.observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.style.opacity = '1';
-          el.style.transform = 'translateY(0)';
-          this.observer.unobserve(el);
-        }
+    gsap.set(el, {
+      opacity: 0,
+      y: this.animFrom === 'bottom' ? 32 : 0,
+      x: this.animFrom === 'left' ? -32 : this.animFrom === 'right' ? 32 : 0,
+      scale: this.animFrom === 'scale' ? 0.92 : 1,
+    });
+
+    this.trigger = ScrollTrigger.create({
+      trigger: el,
+      start: 'top 88%',
+      once: true,
+      onEnter: () => {
+        gsap.to(el, {
+          opacity: 1,
+          y: 0,
+          x: 0,
+          scale: 1,
+          duration: 0.65,
+          delay: this.delay / 1000,
+          ease: 'power2.out',
+        });
       },
-      { threshold: 0.12 }
-    );
-    this.observer.observe(el);
+    });
   }
 
-  ngOnDestroy() { this.observer?.disconnect(); }
+  ngOnDestroy() {
+    this.trigger?.kill();
+  }
 }

@@ -6,11 +6,12 @@ import { MatChipsModule } from '@angular/material/chips';
 import { PortfolioService } from '../../services/portfolio';
 import { Project } from '../../models/portfolio.models';
 import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
+import { AnimateSectionHeaderDirective } from '../../directives/animate-section-header.directive';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-projects',
-  imports: [CommonModule, MatIconModule, MatButtonModule, MatChipsModule, AnimateOnScrollDirective, TranslatePipe],
+  imports: [CommonModule, MatIconModule, MatButtonModule, MatChipsModule, AnimateOnScrollDirective, AnimateSectionHeaderDirective, TranslatePipe],
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
 })

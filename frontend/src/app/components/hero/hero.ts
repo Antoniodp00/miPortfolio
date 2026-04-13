@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, OnInit, AfterViewInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -12,6 +12,7 @@ import { Experience } from '../experience/experience';
 import { Contact } from '../contact/contact';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 import { I18nService } from '../../services/i18n.service';
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-hero',
@@ -19,7 +20,7 @@ import { I18nService } from '../../services/i18n.service';
   templateUrl: './hero.html',
   styleUrl: './hero.scss',
 })
-export class Hero implements OnInit {
+export class Hero implements OnInit, AfterViewInit {
   private svc = inject(PortfolioService);
   private seo = inject(SeoService);
   protected i18n = inject(I18nService);
@@ -37,6 +38,23 @@ export class Hero implements OnInit {
       this.seo.update(p);
     });
     this.typeEffect();
+  }
+
+  ngAfterViewInit() {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+    tl.from('.hero-greeting', { opacity: 0, y: 24, duration: 0.6 })
+      .from('.hero-name',     { opacity: 0, y: 32, duration: 0.7 }, '-=0.35')
+      .from('.hero-role',     { opacity: 0, y: 20, duration: 0.6 }, '-=0.4')
+      .from('.hero-bio',      { opacity: 0, y: 20, duration: 0.6 }, '-=0.4')
+      .from('.hero-actions',  { opacity: 0, y: 18, duration: 0.55 }, '-=0.35')
+      .from('.social-links',  { opacity: 0, y: 14, duration: 0.5 }, '-=0.3')
+      .from('.hero-visual',   { opacity: 0, x: 48, duration: 0.85 }, 0.15)
+      .from('.tech-badge',    { opacity: 0, scale: 0.4, stagger: 0.15, duration: 0.5 }, '-=0.5')
+      .from('.scroll-indicator', { opacity: 0, y: -12, duration: 0.5 }, '-=0.2');
   }
 
   getSocialIconUrl(icon: string): string {
