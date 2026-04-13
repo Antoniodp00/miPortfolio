@@ -5,11 +5,12 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { PortfolioService } from '../../services/portfolio';
 import { Experience as ExperienceModel, Education } from '../../models/portfolio.models';
 import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
+import { AnimateSectionHeaderDirective } from '../../directives/animate-section-header.directive';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-experience',
-  imports: [CommonModule, MatIconModule, MatTabsModule, AnimateOnScrollDirective, TranslatePipe],
+  imports: [CommonModule, MatIconModule, MatTabsModule, AnimateOnScrollDirective, AnimateSectionHeaderDirective, TranslatePipe],
   templateUrl: './experience.html',
   styleUrl: './experience.scss',
 })

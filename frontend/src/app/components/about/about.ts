@@ -5,11 +5,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { PortfolioService } from '../../services/portfolio';
 import { Profile } from '../../models/portfolio.models';
 import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
+import { AnimateSectionHeaderDirective } from '../../directives/animate-section-header.directive';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-about',
-  imports: [CommonModule, MatIconModule, MatButtonModule, AnimateOnScrollDirective, TranslatePipe],
+  imports: [CommonModule, MatIconModule, MatButtonModule, AnimateOnScrollDirective, AnimateSectionHeaderDirective, TranslatePipe],
   templateUrl: './about.html',
   styleUrl: './about.scss',
 })

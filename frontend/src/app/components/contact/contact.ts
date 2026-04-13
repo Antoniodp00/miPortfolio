@@ -9,11 +9,12 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { PortfolioService } from '../../services/portfolio';
 import { Profile } from '../../models/portfolio.models';
 import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
+import { AnimateSectionHeaderDirective } from '../../directives/animate-section-header.directive';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-contact',
-  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatSnackBarModule, AnimateOnScrollDirective, TranslatePipe],
+  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatSnackBarModule, AnimateOnScrollDirective, AnimateSectionHeaderDirective, TranslatePipe],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })

@@ -4,11 +4,12 @@ import { MatChipsModule } from '@angular/material/chips';
 import { PortfolioService } from '../../services/portfolio';
 import { Skill } from '../../models/portfolio.models';
 import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
+import { AnimateSectionHeaderDirective } from '../../directives/animate-section-header.directive';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-skills',
-  imports: [CommonModule, MatChipsModule, AnimateOnScrollDirective, TranslatePipe],
+  imports: [CommonModule, MatChipsModule, AnimateOnScrollDirective, AnimateSectionHeaderDirective, TranslatePipe],
   templateUrl: './skills.html',
   styleUrl: './skills.scss',
 })
