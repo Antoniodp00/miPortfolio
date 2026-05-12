@@ -12,7 +12,7 @@
           class="filter-btn"
           [class.active]="activeCategory() === cat"
           (click)="activeCategory.set(cat)">
-          {{ cat === 'Todos' ? ('skills.todos' | translate) : cat }}
+          {{ catLabel(cat) }}
         </button>
       }
     </div>
@@ -27,7 +27,7 @@
               }
               <span class="skill-name">{{ skill.name }}</span>
             </div>
-            <span class="skill-category">{{ skill.category }}</span>
+            <span class="skill-category">{{ i18n.loc(skill, 'category') }}</span>
           </div>
         </div>
       }

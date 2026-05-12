@@ -5,6 +5,7 @@ import { PortfolioService } from '../../services/portfolio';
 import { Skill } from '../../models/portfolio.models';
 import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
 import { AnimateSectionHeaderDirective } from '../../directives/animate-section-header.directive';
+import { I18nService } from '../../services/i18n.service';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 
 @Component({
@@ -15,6 +16,7 @@ import { TranslatePipe } from '../../pipes/translate.pipe';
 })
 export class Skills implements OnInit {
   private svc = inject(PortfolioService);
+  protected i18n = inject(I18nService);
   skills = signal<Skill[]>([]);
   activeCategory = signal('Todos');
 
@@ -28,6 +30,15 @@ export class Skills implements OnInit {
       ? this.skills()
       : this.skills().filter(s => s.category === this.activeCategory())
   );
+
+  catLabel(cat: string): string {
+    if (cat === 'Todos') return this.i18n.t('skills.todos');
+    if (this.i18n.lang() === 'en') {
+      const match = this.skills().find(s => s.category === cat);
+      return match?.category_en ?? cat;
+    }
+    return cat;
+  }
 
   ngOnInit() {
     this.svc.getSkills().subscribe(s => this.skills.set(s));

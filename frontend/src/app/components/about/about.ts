@@ -6,6 +6,7 @@ import { PortfolioService } from '../../services/portfolio';
 import { Profile } from '../../models/portfolio.models';
 import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
 import { AnimateSectionHeaderDirective } from '../../directives/animate-section-header.directive';
+import { I18nService } from '../../services/i18n.service';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 
 @Component({
@@ -16,6 +17,7 @@ import { TranslatePipe } from '../../pipes/translate.pipe';
 })
 export class About implements OnInit {
   private svc = inject(PortfolioService);
+  protected i18n = inject(I18nService);
   profile = signal<Profile | null>(null);
 
   stats = [

@@ -4,18 +4,19 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { PortfolioService } from '../../services/portfolio';
 import { Experience as ExperienceModel, Education } from '../../models/portfolio.models';
-import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
 import { AnimateSectionHeaderDirective } from '../../directives/animate-section-header.directive';
 import { TranslatePipe } from '../../pipes/translate.pipe';
+import { I18nService } from '../../services/i18n.service';
 
 @Component({
   selector: 'app-experience',
-  imports: [CommonModule, MatIconModule, MatTabsModule, AnimateOnScrollDirective, AnimateSectionHeaderDirective, TranslatePipe],
+  imports: [CommonModule, MatIconModule, MatTabsModule, AnimateSectionHeaderDirective, TranslatePipe],
   templateUrl: './experience.html',
   styleUrl: './experience.scss',
 })
 export class Experience implements OnInit {
   private svc = inject(PortfolioService);
+  protected i18n = inject(I18nService);
   experience = signal<ExperienceModel[]>([]);
   education = signal<Education[]>([]);
 

@@ -16,23 +16,23 @@
               <div class="timeline-card timeline-card--animated" [style.animation-delay]="i * 100 + 'ms'">
                 <div class="card-header">
                   <div>
-                    <h3 class="card-role">{{ exp.role }}</h3>
+                    <h3 class="card-role">{{ i18n.loc(exp, 'role') }}</h3>
                     <a class="card-company" [href]="exp.companyUrl" target="_blank">
                       <mat-icon>business</mat-icon> {{ exp.company }}
                     </a>
                   </div>
                   <div class="card-meta">
                     <span class="card-period">
-                      <mat-icon>calendar_today</mat-icon> {{ exp.period }}
+                      <mat-icon>calendar_today</mat-icon> {{ i18n.loc(exp, 'period') }}
                     </span>
                     @if (exp.current) {
                       <span class="badge-current">{{ 'exp.actual' | translate }}</span>
                     }
                   </div>
                 </div>
-                <p class="card-desc">{{ exp.description }}</p>
+                <p class="card-desc">{{ i18n.loc(exp, 'description') }}</p>
                 <ul class="achievements">
-                  @for (a of exp.achievements; track a) {
+                  @for (a of i18n.locArr(exp, 'achievements'); track a) {
                     <li><mat-icon>check_circle</mat-icon> {{ a }}</li>
                   }
                 </ul>
@@ -59,10 +59,10 @@
                     <span class="card-period">
                       <mat-icon>calendar_today</mat-icon> {{ edu.period }}
                     </span>
-                    <span class="badge-degree">{{ edu.degree }}</span>
+                    <span class="badge-degree">{{ i18n.loc(edu, 'degree') }}</span>
                   </div>
                 </div>
-                <p class="card-desc">{{ edu.description }}</p>
+                <p class="card-desc">{{ i18n.loc(edu, 'description') }}</p>
               </div>
             </div>
           }

@@ -9,7 +9,8 @@ export class SeoService {
 
   update(profile: Profile) {
     const title = `${profile.name} | ${profile.title}`;
-    const desc  = profile.bio.length > 160 ? profile.bio.substring(0, 157) + '...' : profile.bio;
+    const bioText = 'Desarrollador de software con base sólida en .NET, Angular y Java Spring Boot. Córdoba, España.';
+    const desc  = bioText.length > 160 ? bioText.substring(0, 157) + '...' : bioText;
 
     this.title.setTitle(title);
     this.meta.updateTag({ name: 'description',        content: desc });
