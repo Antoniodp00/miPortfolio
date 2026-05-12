@@ -50,19 +50,8 @@
   "projects": [
     {
       "id": 1,
-      "title": "SEPALO — Digital Signage (TFG)",
-      "description": "Plataforma web empresarial de Digital Signage desarrollada en Sepalo Software. Gestión completa de displays, assets, playlists, schedules y deployments. Frontend Angular con Material y signals; backend en capas con EF Core y JWT.",
-      "imageUrl": "",
-      "technologies": ["Angular 17+", "ASP.NET Core 8", "PostgreSQL", "EF Core", "JWT"],
-      "githubUrl": "",
-      "liveUrl": "",
-      "category": "Full Stack",
-      "featured": true
-    },
-    {
-      "id": 2,
-      "title": "CineSphere — Gestión de Cine",
-      "description": "Aplicación de escritorio con arquitectura MVC y patrón DAO para gestión de catálogos de cine. Autenticación con roles USER/ADMIN, importación masiva desde CSV y estadísticas con PieChart/BarChart.",
+      "title": "CineSphere — Escritorio",
+      "description": "Aplicación de escritorio para gestión de catálogos de cine. Arquitectura MVC con patrón DAO, autenticación con roles USER/ADMIN, importación masiva desde CSV y estadísticas con PieChart/BarChart.",
       "imageUrl": "",
       "technologies": ["Java 17", "JavaFX", "Maven", "SQLite", "PostgreSQL"],
       "githubUrl": "https://github.com/Antoniodp00/CineSphere",
@@ -71,18 +60,40 @@
       "featured": true
     },
     {
-      "id": 3,
-      "title": "CineSphere — App Android",
-      "description": "Sistema completo de gestión de películas: app Android nativa en Kotlin y backend en Java. Exploración de cartelera, gestión de favoritos y búsqueda de títulos.",
+      "id": 2,
+      "title": "CineSphere — Android",
+      "description": "App Android nativa en Kotlin con backend en Java para gestión de películas. Exploración de cartelera, favoritos y búsqueda de títulos mediante API REST.",
       "imageUrl": "",
       "technologies": ["Kotlin", "Java", "Android SDK", "API REST"],
       "githubUrl": "https://github.com/Antoniodp00/CineSphereApp",
       "liveUrl": "",
       "category": "Mobile",
-      "featured": false
+      "featured": true
+    },
+    {
+      "id": 3,
+      "title": "Fitness360",
+      "description": "Aplicación de escritorio para gestión de gimnasios. Rutinas de entrenamiento, planes dietéticos, seguimiento de clientes y control de suscripciones con sistema de roles para profesionales y usuarios.",
+      "imageUrl": "",
+      "technologies": ["Java 17", "JavaFX", "MySQL", "JDBC", "Maven"],
+      "githubUrl": "https://github.com/Antoniodp00/Fitness360-Proyecto3EVAL-",
+      "liveUrl": "",
+      "category": "Desktop",
+      "featured": true
     },
     {
       "id": 4,
+      "title": "EcoRastro",
+      "description": "App de escritorio para monitorización de huella de carbono. CRUD de actividades, hábitos recurrentes, dashboard con gráficas, sistema de gamificación con rankings y exportación CSV. Desarrollado con TDD y Hibernate.",
+      "imageUrl": "",
+      "technologies": ["Java 21", "JavaFX", "Hibernate", "MySQL", "Maven", "JUnit 5"],
+      "githubUrl": "https://github.com/Antoniodp00/EcoRastro",
+      "liveUrl": "",
+      "category": "Desktop",
+      "featured": true
+    },
+    {
+      "id": 5,
       "title": "ATM API — Spring Boot",
       "description": "API REST de cajero automático con Spring Boot. Operaciones bancarias: depósito, retiro, consulta de saldo y transferencias entre cuentas.",
       "imageUrl": "",
@@ -90,10 +101,10 @@
       "githubUrl": "https://github.com/Antoniodp00/atm-api-SpringBoot",
       "liveUrl": "",
       "category": "Backend",
-      "featured": false
+      "featured": true
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "Proyecto Chat",
       "description": "Aplicación de mensajería en tiempo real para múltiples usuarios mediante sockets Java.",
       "imageUrl": "",
@@ -101,7 +112,7 @@
       "githubUrl": "https://github.com/Antoniodp00/ProyectoChatAntonioDelgadoPortero",
       "liveUrl": "",
       "category": "Backend",
-      "featured": false
+      "featured": true
     }
   ],
 
