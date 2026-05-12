@@ -13,7 +13,7 @@
           @for (exp of experience(); track exp.id; let last = $last; let i = $index) {
             <div class="timeline-item" [class.last]="last">
               <div class="timeline-dot" [class.current]="exp.current"></div>
-              <div class="timeline-card" appAnimateOnScroll [delay]="i * 100">
+              <div class="timeline-card timeline-card--animated" [style.animation-delay]="i * 100 + 'ms'">
                 <div class="card-header">
                   <div>
                     <h3 class="card-role">{{ exp.role }}</h3>
@@ -47,7 +47,7 @@
           @for (edu of education(); track edu.id; let last = $last; let i = $index) {
             <div class="timeline-item" [class.last]="last">
               <div class="timeline-dot"></div>
-              <div class="timeline-card" appAnimateOnScroll [delay]="i * 100">
+              <div class="timeline-card timeline-card--animated" [style.animation-delay]="i * 100 + 'ms'">
                 <div class="card-header">
                   <div>
                     <h3 class="card-role">{{ edu.field }}</h3>
