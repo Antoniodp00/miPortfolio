@@ -27,7 +27,7 @@ export class Hero implements OnInit, AfterViewInit {
   profile = signal<Profile | null>(null);
   typedText = signal('');
 
-  private roles = ['Desarrollador de Software', 'Java · Spring Boot', '.NET 8 · Angular 17+', 'IA aplicada al desarrollo'];
+  private roles = ['Desarrollador de Software', 'Java · Spring Boot', '.NET 8 · Angular 17+'];
   private roleIndex = 0;
   private charIndex = 0;
   private deleting = false;
