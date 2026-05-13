@@ -5,6 +5,12 @@ import { Lang, translations } from '../i18n/translations';
 export class I18nService {
   lang = signal<Lang>((localStorage.getItem('portfolio-lang') as Lang) ?? 'es');
 
+  constructor() {
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = this.lang();
+    }
+  }
+
   t(key: string): string {
     return translations[this.lang()][key] ?? key;
   }
@@ -33,6 +39,9 @@ export class I18nService {
     this.lang.update(l => {
       const next: Lang = l === 'es' ? 'en' : 'es';
       localStorage.setItem('portfolio-lang', next);
+      if (typeof document !== 'undefined') {
+        document.documentElement.lang = next;
+      }
       return next;
     });
   }
