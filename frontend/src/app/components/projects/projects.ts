@@ -9,10 +9,11 @@ import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.dir
 import { AnimateSectionHeaderDirective } from '../../directives/animate-section-header.directive';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 import { I18nService } from '../../services/i18n.service';
+import { ProjectCover } from '../project-cover/project-cover';
 
 @Component({
   selector: 'app-projects',
-  imports: [CommonModule, MatIconModule, MatButtonModule, MatChipsModule, AnimateOnScrollDirective, AnimateSectionHeaderDirective, TranslatePipe],
+  imports: [CommonModule, MatIconModule, MatButtonModule, MatChipsModule, AnimateOnScrollDirective, AnimateSectionHeaderDirective, TranslatePipe, ProjectCover],
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
 })

@@ -18,6 +18,17 @@
       @for (project of filtered(); track project.id; let i = $index) {
         <article class="project-card" [class.featured]="project.featured" appAnimateOnScroll [delay]="i * 80">
 
+          @if (project.imageUrl) {
+            <div class="project-image">
+              <img [src]="project.imageUrl" [alt]="i18n.loc(project, 'title')" loading="lazy" />
+            </div>
+          } @else {
+            <app-project-cover
+              [title]="i18n.loc(project, 'title')"
+              [technologies]="project.technologies"
+              [index]="i" />
+          }
+
           <header class="project-head">
             <div class="head-meta">
               <span class="project-category">{{ i18n.loc(project, 'category') }}</span>
