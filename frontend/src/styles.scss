@@ -22,13 +22,22 @@ html {
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   margin: 0;
   height: 100%;
 }
 
+// ── Typography pair (display + body) ──────────────────────────────
+:root {
+  --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:    'Fira Code', ui-monospace, monospace;
+}
+
 // ── Dark mode (default) — monochromatic blue palette ───────────────
 :root {
+  --color-accent-warm:    #f5f1e8;
+  --color-accent-warm-2:  #c9a87c;
   --color-bg:            #0a0e1a;
   --color-bg-card:       #111827;
   --color-bg-glass:      rgba(255,255,255,0.04);
@@ -55,6 +64,8 @@ body {
 
 // ── Light mode ─────────────────────────────────────────────────────
 [data-theme="light"] {
+  --color-accent-warm:    #1f2937;
+  --color-accent-warm-2:  #8c6f43;
   --color-bg:            #f8fafc;
   --color-bg-card:       #ffffff;
   --color-bg-glass:      rgba(0,0,0,0.03);
@@ -97,13 +108,13 @@ section { padding: 100px 0; }
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: var(--color-primary-light);
-    letter-spacing: 0.18em;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--color-accent-warm-2);
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
 
     &::before {
       content: '';
@@ -111,15 +122,18 @@ section { padding: 100px 0; }
       width: 28px;
       height: 1px;
       background: currentColor;
+      opacity: 0.7;
     }
   }
 
   h2 {
-    font-size: clamp(2rem, 4vw, 2.8rem);
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    font-weight: 400;
     color: var(--color-text);
     margin: 0 0 16px;
-    line-height: 1.2;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
   }
 
   p {
@@ -199,6 +213,10 @@ section { padding: 100px 0; }
   background-color: var(--color-bg-card) !important;
   border: 1px solid var(--color-border) !important;
   border-radius: var(--radius-card) !important;
+}
+
+.mdc-text-field--outlined {
+  --mdc-outlined-text-field-container-shape: 10px !important;
 }
 
 .mdc-text-field--outlined .mdc-notched-outline__leading,

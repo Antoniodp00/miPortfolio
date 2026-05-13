@@ -2,18 +2,57 @@
   background: var(--color-bg);
 }
 
-.about-grid {
+.about-bento {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: start;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
 }
 
-.about-bio {
-  font-size: 1.05rem;
-  color: var(--color-muted);
-  line-height: 1.9;
-  margin: 0 0 32px;
+.bento-cell {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 36px;
+  transition: var(--transition);
+
+  &:hover {
+    border-color: rgba(59,130,246,0.25);
+  }
+}
+
+.bento-bio {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+
+  .about-bio {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+    font-weight: 400;
+    color: var(--color-text);
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+    margin: 0;
+
+    em, i { font-style: italic; color: var(--color-accent-warm-2); }
+  }
+}
+
+.bento-contact {
+  grid-column: 2;
+  grid-row: 1;
+
+  .bento-title {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-accent-warm-2);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin: 0 0 20px;
+  }
 }
 
 .contact-info {
@@ -26,51 +65,94 @@
     align-items: center;
     gap: 12px;
     color: var(--color-muted);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
+    text-decoration: none;
 
-    mat-icon { color: var(--color-primary-light); font-size: 20px; width: 20px; height: 20px; }
-    a { color: var(--color-primary-light); transition: var(--transition); &:hover { color: var(--color-accent); } }
+    mat-icon {
+      color: var(--color-primary-light);
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+    }
+
+    &.link {
+      transition: var(--transition);
+      &:hover { color: var(--color-text); }
+    }
   }
 }
 
-.stats-grid {
+.bento-pillars {
+  grid-column: 1 / -1;
+  grid-row: 2;
+
+  .bento-title {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-accent-warm-2);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin: 0 0 24px;
+  }
+}
+
+.pillars {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
 }
 
-.stat-card {
-  background: var(--gradient-card);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-card);
-  padding: 32px 24px;
-  text-align: center;
-  transition: var(--transition);
+.pillar {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
 
-  &:hover {
-    border-color: rgba(37,99,235,0.4);
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(37,99,235,0.15);
+  .pillar-icon {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(59,130,246,0.08);
+    border: 1px solid rgba(59,130,246,0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    mat-icon {
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+      color: var(--color-primary-light);
+    }
   }
 
-  .stat-value {
-    display: block;
-    font-size: 2.4rem;
-    font-weight: 800;
-    background: var(--gradient-hero);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 6px;
+  h4 {
+    margin: 0 0 6px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text);
   }
 
-  .stat-label {
-    font-size: 0.85rem;
+  p {
+    margin: 0;
+    font-size: 0.84rem;
     color: var(--color-muted);
-    font-weight: 500;
+    line-height: 1.6;
   }
 }
 
-@media (max-width: 768px) {
-  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+@media (max-width: 900px) {
+  .about-bento {
+    grid-template-columns: 1fr;
+  }
+  .bento-bio, .bento-contact, .bento-pillars {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .pillars {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }

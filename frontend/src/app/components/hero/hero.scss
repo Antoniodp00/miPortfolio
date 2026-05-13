@@ -16,30 +16,14 @@
 .orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.35;
-  animation: float 8s ease-in-out infinite;
+  filter: blur(120px);
+  opacity: 0.25;
 
   &-1 {
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, #2563eb, transparent);
-    top: -100px; left: -100px;
+    width: 620px; height: 620px;
+    background: radial-gradient(circle, #2563eb, transparent 70%);
+    top: -180px; right: -100px;
   }
-  &-2 {
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, #06b6d4, transparent);
-    bottom: -100px; right: -50px;
-    animation-delay: -4s;
-  }
-}
-
-.grid-overlay {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(37,99,235,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(37,99,235,0.06) 1px, transparent 1px);
-  background-size: 50px 50px;
 }
 
 .hero-content {
@@ -56,37 +40,55 @@
 }
 
 .hero-greeting {
-  display: inline-block;
-  font-size: 1.1rem;
-  color: var(--color-muted);
-  margin-bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--color-accent-warm-2);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+
+  &::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.6;
+  }
 }
 
 .hero-name {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6.5vw, 5.2rem);
+  font-weight: 400;
   color: var(--color-text);
-  margin: 0 0 12px;
-  line-height: 1.1;
-  background: var(--color-name-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  margin: 0 0 8px;
+  line-height: 1;
+  letter-spacing: -0.025em;
 }
 
 .hero-role {
-  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  font-weight: 400;
   color: var(--color-muted);
-  margin: 0 0 20px;
-  min-height: 2.2rem;
+  margin: 0 0 24px;
+  min-height: 1.8rem;
 
-  .typed-text { color: var(--color-primary-light); }
+  .typed-text { color: var(--color-text); font-weight: 500; }
   .cursor {
-    color: var(--color-accent);
-    animation: pulse-glow 1s ease-in-out infinite;
+    color: var(--color-primary-light);
+    animation: blink 1s ease-in-out infinite;
     font-weight: 300;
   }
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.2; }
 }
 
 .hero-bio {
@@ -186,45 +188,38 @@
 
 .avatar-wrapper {
   position: relative;
-  width: 380px;
-  height: 380px;
+  width: 360px;
+  height: 360px;
 
   .avatar-img {
     width: 100%;
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid rgba(37,99,235,0.4);
+    border: 1px solid var(--color-border);
     background: var(--color-bg-card);
-    animation: float 6s ease-in-out infinite;
+    box-shadow:
+      0 0 0 8px rgba(255,255,255,0.02),
+      0 20px 80px rgba(0,0,0,0.3);
   }
 
   .avatar-placeholder {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(6,182,212,0.08));
-    border: 3px solid rgba(37,99,235,0.35);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: float 6s ease-in-out infinite;
     mat-icon {
       font-size: 90px; width: 90px; height: 90px;
-      color: var(--color-primary-light); opacity: 0.6;
+      color: var(--color-muted); opacity: 0.5;
     }
   }
 
   .avatar-ring {
-    position: absolute;
-    inset: -12px;
-    border-radius: 50%;
-    border: 2px solid transparent;
-    background: var(--gradient-hero) border-box;
-    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
-    /* Static border, no infinite rotation (UX: reduce motion) */
+    display: none;
   }
 }
 

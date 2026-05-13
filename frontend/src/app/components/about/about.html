@@ -5,28 +5,59 @@
       <h2>{{ 'about.title' | translate }}</h2>
     </div>
 
-    <div class="about-grid">
-      <div class="about-info">
-        @if (profile(); as p) {
-          <p class="about-bio">{{ 'profile.bio' | translate }}</p>
+    @if (profile(); as p) {
+      <div class="about-bento">
 
+        <article class="bento-cell bento-bio" appAnimateOnScroll>
+          <p class="about-bio">{{ 'profile.bio' | translate }}</p>
+        </article>
+
+        <article class="bento-cell bento-contact" appAnimateOnScroll [delay]="80">
+          <h3 class="bento-title">{{ 'about.contactTitle' | translate }}</h3>
           <div class="contact-info">
             <div class="info-item">
-              <mat-icon>location_on</mat-icon>
+              <mat-icon aria-hidden="true">location_on</mat-icon>
               <span>{{ i18n.loc(p, 'location') }}</span>
             </div>
+            <a [href]="'mailto:' + p.email" class="info-item link">
+              <mat-icon aria-hidden="true">email</mat-icon>
+              <span>{{ p.email }}</span>
+            </a>
             <div class="info-item">
-              <mat-icon>email</mat-icon>
-              <a [href]="'mailto:' + p.email">{{ p.email }}</a>
-            </div>
-            <div class="info-item">
-              <mat-icon>phone</mat-icon>
+              <mat-icon aria-hidden="true">phone</mat-icon>
               <span>{{ p.phone }}</span>
             </div>
           </div>
-        }
-      </div>
+        </article>
 
-    </div>
+        <article class="bento-cell bento-pillars" appAnimateOnScroll [delay]="160">
+          <h3 class="bento-title">{{ 'about.pillarsTitle' | translate }}</h3>
+          <div class="pillars">
+            <div class="pillar">
+              <div class="pillar-icon"><mat-icon aria-hidden="true">architecture</mat-icon></div>
+              <div>
+                <h4>{{ 'about.pillar1.title' | translate }}</h4>
+                <p>{{ 'about.pillar1.desc' | translate }}</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon"><mat-icon aria-hidden="true">layers</mat-icon></div>
+              <div>
+                <h4>{{ 'about.pillar2.title' | translate }}</h4>
+                <p>{{ 'about.pillar2.desc' | translate }}</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon"><mat-icon aria-hidden="true">hub</mat-icon></div>
+              <div>
+                <h4>{{ 'about.pillar3.title' | translate }}</h4>
+                <p>{{ 'about.pillar3.desc' | translate }}</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    }
   </div>
 </section>
