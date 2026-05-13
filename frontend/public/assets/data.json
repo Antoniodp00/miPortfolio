@@ -56,13 +56,22 @@
       "title_en": "CineSphere — Desktop",
       "description": "Aplicación de escritorio para gestión de catálogos de cine. Arquitectura MVC con patrón DAO, autenticación con roles USER/ADMIN, importación masiva desde CSV y estadísticas con PieChart/BarChart.",
       "description_en": "Desktop application for cinema catalogue management. MVC architecture with DAO pattern, USER/ADMIN role authentication, bulk CSV import and statistics with PieChart/BarChart.",
+      "highlight": "Capas separadas Controller / DAO / Model con FXML; persistencia dual SQLite (local) y PostgreSQL (remoto).",
+      "highlight_en": "Separated Controller / DAO / Model layers with FXML; dual persistence SQLite (local) and PostgreSQL (remote).",
       "imageUrl": "",
       "technologies": ["Java 17", "JavaFX", "Maven", "SQLite", "PostgreSQL"],
       "githubUrl": "https://github.com/Antoniodp00/CineSphere",
       "liveUrl": "",
       "category": "Escritorio",
       "category_en": "Desktop",
-      "featured": true
+      "featured": true,
+      "status": "completed",
+      "year": "2025",
+      "metrics": [
+        { "label": "Patrón", "label_en": "Pattern", "value": "MVC + DAO" },
+        { "label": "Roles", "label_en": "Roles", "value": "USER / ADMIN" },
+        { "label": "BD", "label_en": "DB", "value": "SQLite / PG" }
+      ]
     },
     {
       "id": 2,
@@ -70,13 +79,21 @@
       "title_en": "CineSphere — Android",
       "description": "App Android nativa en Kotlin con backend en Java para gestión de películas. Exploración de cartelera, favoritos y búsqueda de títulos mediante API REST.",
       "description_en": "Native Android app in Kotlin with Java backend for movie management. Browse listings, manage favourites and search titles via REST API.",
+      "highlight": "Cliente Kotlin consumiendo API REST con Retrofit; gestión de estado y favoritos con persistencia local.",
+      "highlight_en": "Kotlin client consuming REST API with Retrofit; state and favourites management with local persistence.",
       "imageUrl": "",
       "technologies": ["Kotlin", "Java", "Android SDK", "API REST"],
       "githubUrl": "https://github.com/Antoniodp00/CineSphereApp",
       "liveUrl": "",
       "category": "Mobile",
       "category_en": "Mobile",
-      "featured": true
+      "featured": true,
+      "status": "completed",
+      "year": "2025",
+      "metrics": [
+        { "label": "Plataforma", "label_en": "Platform", "value": "Android" },
+        { "label": "Lenguaje", "label_en": "Language", "value": "Kotlin" }
+      ]
     },
     {
       "id": 3,
@@ -84,13 +101,22 @@
       "title_en": "Fitness360",
       "description": "Aplicación de escritorio para gestión de gimnasios. Rutinas de entrenamiento, planes dietéticos, seguimiento de clientes y control de suscripciones con sistema de roles para profesionales y usuarios.",
       "description_en": "Desktop application for gym management. Workout routines, diet plans, client tracking and subscription management with a role-based system for professionals and users.",
+      "highlight": "Sistema multi-rol con permisos diferenciados profesional/cliente; persistencia JDBC con MySQL y Logback para auditoría.",
+      "highlight_en": "Multi-role system with separated professional/client permissions; JDBC persistence on MySQL and Logback for auditing.",
       "imageUrl": "",
       "technologies": ["Java 17", "JavaFX", "MySQL", "JDBC", "Maven"],
       "githubUrl": "https://github.com/Antoniodp00/Fitness360-Proyecto3EVAL-",
       "liveUrl": "",
       "category": "Escritorio",
       "category_en": "Desktop",
-      "featured": true
+      "featured": true,
+      "status": "completed",
+      "year": "2024",
+      "metrics": [
+        { "label": "Patrón", "label_en": "Pattern", "value": "MVC + DAO" },
+        { "label": "Persistencia", "label_en": "Persistence", "value": "JDBC + MySQL" },
+        { "label": "Auditoría", "label_en": "Auditing", "value": "Logback" }
+      ]
     },
     {
       "id": 4,
@@ -98,13 +124,22 @@
       "title_en": "EcoRastro",
       "description": "App de escritorio para monitorización de huella de carbono. CRUD de actividades, hábitos recurrentes, dashboard con gráficas, gamificación con rankings y exportación CSV. Desarrollado con TDD y Hibernate.",
       "description_en": "Desktop app for carbon footprint monitoring. Activity CRUD, recurring habits, dashboard with charts, gamification with rankings and CSV export. Built with TDD and Hibernate.",
+      "highlight": "Desarrollado con TDD desde el primer commit; cobertura de tests sobre dominio y persistencia con Mockito + JUnit 5.",
+      "highlight_en": "Built with TDD from the first commit; test coverage over domain and persistence with Mockito + JUnit 5.",
       "imageUrl": "",
       "technologies": ["Java 21", "JavaFX", "Hibernate", "MySQL", "Maven", "JUnit 5"],
       "githubUrl": "https://github.com/Antoniodp00/EcoRastro",
       "liveUrl": "",
       "category": "Escritorio",
       "category_en": "Desktop",
-      "featured": true
+      "featured": true,
+      "status": "completed",
+      "year": "2025",
+      "metrics": [
+        { "label": "Metodología", "label_en": "Methodology", "value": "TDD" },
+        { "label": "ORM", "label_en": "ORM", "value": "Hibernate" },
+        { "label": "Testing", "label_en": "Testing", "value": "JUnit 5 + Mockito" }
+      ]
     },
     {
       "id": 5,
@@ -112,13 +147,21 @@
       "title_en": "ATM API — Spring Boot",
       "description": "API REST de cajero automático con Spring Boot. Operaciones bancarias: depósito, retiro, consulta de saldo y transferencias entre cuentas.",
       "description_en": "ATM REST API built with Spring Boot. Banking operations: deposit, withdrawal, balance enquiry and account transfers.",
+      "highlight": "Arquitectura Controller / Service / Repository; validación de entidades y manejo de transacciones bancarias.",
+      "highlight_en": "Controller / Service / Repository architecture; entity validation and banking transaction handling.",
       "imageUrl": "",
       "technologies": ["Java", "Spring Boot", "REST API"],
       "githubUrl": "https://github.com/Antoniodp00/atm-api-SpringBoot",
       "liveUrl": "",
       "category": "Backend",
       "category_en": "Backend",
-      "featured": true
+      "featured": true,
+      "status": "completed",
+      "year": "2024",
+      "metrics": [
+        { "label": "Stack", "label_en": "Stack", "value": "Spring Boot" },
+        { "label": "Capas", "label_en": "Layers", "value": "Controller / Service / Repo" }
+      ]
     },
     {
       "id": 6,
@@ -126,13 +169,21 @@
       "title_en": "Chat Project",
       "description": "Aplicación de mensajería en tiempo real para múltiples usuarios mediante sockets Java.",
       "description_en": "Real-time messaging application for multiple users built with Java sockets.",
+      "highlight": "Servidor multi-cliente con threads concurrentes y sincronización de mensajes entre todos los participantes.",
+      "highlight_en": "Multi-client server with concurrent threads and message synchronization across all participants.",
       "imageUrl": "",
       "technologies": ["Java", "Sockets"],
       "githubUrl": "https://github.com/Antoniodp00/ProyectoChatAntonioDelgadoPortero",
       "liveUrl": "",
       "category": "Backend",
       "category_en": "Backend",
-      "featured": true
+      "featured": true,
+      "status": "completed",
+      "year": "2024",
+      "metrics": [
+        { "label": "Protocolo", "label_en": "Protocol", "value": "TCP Sockets" },
+        { "label": "Concurrencia", "label_en": "Concurrency", "value": "Threads" }
+      ]
     }
   ],
 

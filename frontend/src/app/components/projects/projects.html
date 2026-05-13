@@ -16,38 +16,62 @@
 
     <div class="projects-grid">
       @for (project of filtered(); track project.id; let i = $index) {
-        <div class="project-card" [class.featured]="project.featured" appAnimateOnScroll [delay]="i * 80">
-          @if (project.featured) {
-            <span class="featured-badge">⭐ {{ 'projects.destacado' | translate }}</span>
-          }
-          @if (project.imageUrl) {
-            <div class="project-image">
-              <img [src]="project.imageUrl" [alt]="i18n.loc(project, 'title')" loading="lazy" />
-            </div>
-          }
-          <div class="project-body">
-            <div class="project-category">{{ i18n.loc(project, 'category') }}</div>
-            <h3 class="project-title">{{ i18n.loc(project, 'title') }}</h3>
-            <p class="project-desc">{{ i18n.loc(project, 'description') }}</p>
-            <div class="project-techs">
-              @for (tech of project.technologies; track tech) {
-                <span class="tech-tag">{{ tech }}</span>
+        <article class="project-card" [class.featured]="project.featured" appAnimateOnScroll [delay]="i * 80">
+
+          <header class="project-head">
+            <div class="head-meta">
+              <span class="project-category">{{ i18n.loc(project, 'category') }}</span>
+              @if (project.year) {
+                <span class="project-year">{{ project.year }}</span>
+              }
+              @if (project.status) {
+                <span class="project-status" [class]="'status-' + project.status">
+                  {{ ('project.status.' + project.status) | translate }}
+                </span>
               }
             </div>
+            <h3 class="project-title">{{ i18n.loc(project, 'title') }}</h3>
+          </header>
+
+          <p class="project-desc">{{ i18n.loc(project, 'description') }}</p>
+
+          @if (project.highlight) {
+            <p class="project-highlight">
+              <mat-icon aria-hidden="true">bolt</mat-icon>
+              <span>{{ i18n.loc(project, 'highlight') }}</span>
+            </p>
+          }
+
+          @if (project.metrics && project.metrics.length) {
+            <ul class="project-metrics">
+              @for (m of project.metrics; track m.label) {
+                <li>
+                  <span class="metric-label">{{ i18n.loc(m, 'label') }}</span>
+                  <span class="metric-value">{{ m.value }}</span>
+                </li>
+              }
+            </ul>
+          }
+
+          <div class="project-techs">
+            @for (tech of project.technologies; track tech) {
+              <span class="tech-tag">{{ tech }}</span>
+            }
           </div>
+
           <div class="project-actions">
             @if (project.githubUrl) {
-              <a [href]="project.githubUrl" target="_blank" class="action-btn">
-                <mat-icon>code</mat-icon> {{ 'projects.codigo' | translate }}
+              <a [href]="project.githubUrl" target="_blank" rel="noopener" class="action-btn" [attr.aria-label]="'GitHub: ' + i18n.loc(project, 'title')">
+                <mat-icon aria-hidden="true">code</mat-icon> {{ 'projects.codigo' | translate }}
               </a>
             }
             @if (project.liveUrl) {
-              <a [href]="project.liveUrl" target="_blank" class="action-btn primary">
-                <mat-icon>open_in_new</mat-icon> {{ 'projects.demo' | translate }}
+              <a [href]="project.liveUrl" target="_blank" rel="noopener" class="action-btn primary" [attr.aria-label]="'Demo: ' + i18n.loc(project, 'title')">
+                <mat-icon aria-hidden="true">open_in_new</mat-icon> {{ 'projects.demo' | translate }}
               </a>
             }
           </div>
-        </div>
+        </article>
       }
     </div>
   </div>

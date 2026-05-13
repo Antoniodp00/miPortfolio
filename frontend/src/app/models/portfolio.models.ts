@@ -25,16 +25,28 @@ export interface Skill {
   icon: string;
 }
 
+export interface ProjectMetric {
+  label: string;
+  label_en?: string;
+  value: string;
+}
+
+export type ProjectStatus = 'production' | 'completed' | 'wip' | 'archived';
+
 export interface Project {
   id: number;
   title: string; title_en?: string;
   description: string; description_en?: string;
+  highlight?: string; highlight_en?: string;
   imageUrl?: string;
   technologies: string[];
   githubUrl?: string;
   liveUrl?: string;
   category: string; category_en?: string;
   featured: boolean;
+  metrics?: ProjectMetric[];
+  status?: ProjectStatus;
+  year?: string;
 }
 
 export interface Experience {
