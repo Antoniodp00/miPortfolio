@@ -58,48 +58,48 @@
         <div class="form-row">
           <mat-form-field appearance="outline" class="field">
             <mat-label>{{ 'contact.nombre' | translate }}</mat-label>
-            <input matInput formControlName="name" placeholder="Tu nombre" />
-            <mat-icon matPrefix>person</mat-icon>
+            <input matInput formControlName="name" [placeholder]="'contact.ph.name' | translate" />
+            <mat-icon matPrefix aria-hidden="true">person</mat-icon>
             @if (form.get('name')?.invalid && form.get('name')?.touched) {
-              <mat-error>Nombre requerido (mín. 2 caracteres)</mat-error>
+              <mat-error>{{ 'contact.err.name' | translate }}</mat-error>
             }
           </mat-form-field>
 
           <mat-form-field appearance="outline" class="field">
             <mat-label>{{ 'contact.email' | translate }}</mat-label>
-            <input matInput formControlName="email" placeholder="tu@email.com" type="email" />
-            <mat-icon matPrefix>email</mat-icon>
+            <input matInput formControlName="email" [placeholder]="'contact.ph.email' | translate" type="email" />
+            <mat-icon matPrefix aria-hidden="true">email</mat-icon>
             @if (form.get('email')?.invalid && form.get('email')?.touched) {
-              <mat-error>Email válido requerido</mat-error>
+              <mat-error>{{ 'contact.err.email' | translate }}</mat-error>
             }
           </mat-form-field>
         </div>
 
         <mat-form-field appearance="outline" class="field full">
           <mat-label>{{ 'contact.asunto' | translate }}</mat-label>
-          <input matInput formControlName="subject" placeholder="¿De qué trata?" />
-          <mat-icon matPrefix>subject</mat-icon>
+          <input matInput formControlName="subject" [placeholder]="'contact.ph.subject' | translate" />
+          <mat-icon matPrefix aria-hidden="true">subject</mat-icon>
           @if (form.get('subject')?.invalid && form.get('subject')?.touched) {
-            <mat-error>Asunto requerido (mín. 5 caracteres)</mat-error>
+            <mat-error>{{ 'contact.err.subject' | translate }}</mat-error>
           }
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="field full">
           <mat-label>{{ 'contact.mensaje' | translate }}</mat-label>
-          <textarea matInput formControlName="message" rows="6" placeholder="Cuéntame sobre tu proyecto..."></textarea>
+          <textarea matInput formControlName="message" rows="6" [placeholder]="'contact.ph.message' | translate"></textarea>
           @if (form.get('message')?.invalid && form.get('message')?.touched) {
-            <mat-error>Mensaje requerido (mín. 10 caracteres)</mat-error>
+            <mat-error>{{ 'contact.err.message' | translate }}</mat-error>
           }
         </mat-form-field>
 
         <button mat-flat-button type="submit" class="submit-btn" [disabled]="sending()">
           @if (sending()) {
             <ng-container>
-              <mat-icon>hourglass_empty</mat-icon> Enviando...
+              <mat-icon aria-hidden="true">hourglass_empty</mat-icon> {{ 'contact.sending' | translate }}
             </ng-container>
           } @else {
             <ng-container>
-              <mat-icon>send</mat-icon> {{ 'contact.enviar' | translate }}
+              <mat-icon aria-hidden="true">send</mat-icon> {{ 'contact.enviar' | translate }}
             </ng-container>
           }
         </button>
