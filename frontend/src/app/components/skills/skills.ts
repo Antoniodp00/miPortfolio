@@ -3,14 +3,13 @@ import { CommonModule } from '@angular/common';
 import { MatChipsModule } from '@angular/material/chips';
 import { PortfolioService } from '../../services/portfolio';
 import { Skill } from '../../models/portfolio.models';
-import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
 import { AnimateSectionHeaderDirective } from '../../directives/animate-section-header.directive';
 import { I18nService } from '../../services/i18n.service';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-skills',
-  imports: [CommonModule, MatChipsModule, AnimateOnScrollDirective, AnimateSectionHeaderDirective, TranslatePipe],
+  imports: [CommonModule, MatChipsModule, AnimateSectionHeaderDirective, TranslatePipe],
   templateUrl: './skills.html',
   styleUrl: './skills.scss',
 })

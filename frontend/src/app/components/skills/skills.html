@@ -21,7 +21,7 @@
 
     <div class="skills-grid">
       @for (skill of filtered(); track skill.name; let i = $index) {
-        <div class="skill-card" appAnimateOnScroll [delay]="i * 60">
+        <div class="skill-card skill-card--animated" [style.animation-delay]="(i % 12) * 35 + 'ms'">
           <div class="skill-header">
             <div class="skill-name-row">
               @if (skill.icon) {
