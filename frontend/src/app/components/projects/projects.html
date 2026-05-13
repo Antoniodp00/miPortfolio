@@ -8,7 +8,7 @@
 
     <div class="category-filters">
       @for (cat of categories(); track cat) {
-        <button class="filter-btn" [class.active]="activeFilter() === cat" (click)="activeFilter.set(cat)">
+        <button class="filter-btn" type="button" [class.active]="activeFilter() === cat" [attr.aria-pressed]="activeFilter() === cat" (click)="activeFilter.set(cat)">
           {{ catLabel(cat) }}
         </button>
       }

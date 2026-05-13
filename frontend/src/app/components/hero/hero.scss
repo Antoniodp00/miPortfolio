@@ -224,11 +224,9 @@
     -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: destination-out;
     mask-composite: exclude;
-    animation: spin 8s linear infinite;
+    /* Static border, no infinite rotation (UX: reduce motion) */
   }
 }
-
-@keyframes spin { to { transform: rotate(360deg); } }
 
 .tech-badge {
   position: absolute;

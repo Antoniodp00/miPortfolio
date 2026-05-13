@@ -10,7 +10,9 @@
       @for (cat of categories(); track cat) {
         <button
           class="filter-btn"
+          type="button"
           [class.active]="activeCategory() === cat"
+          [attr.aria-pressed]="activeCategory() === cat"
           (click)="activeCategory.set(cat)">
           {{ catLabel(cat) }}
         </button>

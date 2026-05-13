@@ -42,7 +42,7 @@
       @if (profile(); as p) {
         <div class="social-links">
           @for (link of p.socialLinks; track link.platform) {
-            <a [href]="link.url" target="_blank" class="social-link" [title]="link.platform">
+            <a [href]="link.url" target="_blank" rel="noopener" class="social-link" [title]="link.platform" [attr.aria-label]="link.platform">
               @if (link.icon === 'email') {
                 <mat-icon class="social-icon-mat">email</mat-icon>
               } @else {
@@ -66,9 +66,6 @@
           }
         }
         <div class="avatar-ring"></div>
-        <div class="tech-badge badge-1"><span>Spring Boot</span></div>
-        <div class="tech-badge badge-2"><span>Angular</span></div>
-        <div class="tech-badge badge-3"><span>Java 21</span></div>
       </div>
     </div>
   </div>
@@ -78,9 +75,33 @@
   </div>
 </section>
 
-<!-- ALL SECTIONS BELOW HERO -->
-<app-about />
-<app-skills />
-<app-projects />
-<app-experience />
-<app-contact />
+<!-- ALL SECTIONS BELOW HERO (lazy-loaded with @defer) -->
+@defer (on viewport; prefetch on idle) {
+  <app-about />
+} @placeholder {
+  <div class="section-skeleton"></div>
+}
+
+@defer (on viewport; prefetch on idle) {
+  <app-skills />
+} @placeholder {
+  <div class="section-skeleton"></div>
+}
+
+@defer (on viewport; prefetch on idle) {
+  <app-projects />
+} @placeholder {
+  <div class="section-skeleton"></div>
+}
+
+@defer (on viewport; prefetch on idle) {
+  <app-experience />
+} @placeholder {
+  <div class="section-skeleton"></div>
+}
+
+@defer (on viewport; prefetch on idle) {
+  <app-contact />
+} @placeholder {
+  <div class="section-skeleton"></div>
+}
